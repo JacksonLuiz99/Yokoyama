@@ -1,34 +1,18 @@
 <?php
-include("../class/classFipe.php.");
-$objFipe=new classFipe();
+include ("../class/ClassFipe.php");
+$objFipe=new ClassFipe();
 $action=$_GET['action'];
-if(isset($_GET['marca'])){
-    $marca=$_GET['marca'];
-}else{
-    $marca=null;
+if(isset($_GET['brandId'])){$brandId=$_GET['brandId'];}else{$brandId=null;}
+if(isset($_GET['vehicleId'])){$vehicleId=$_GET['vehicleId'];}else{$vehicleId=null;}
+
+
+if($action=='brand'){
+    $objFipe->setUrl("https://parallelum.com.br/fipe/api/v1/carros/marcas");
+    echo $objFipe->getUrl();
+}elseif($action=='vehicles'){
+    $objFipe->setUrl("https://parallelum.com.br/fipe/api/v1/carros/marcas/{$brandId}/modelos");
+    echo $objFipe->getUrl();
+}elseif($action=='year'){
+    $objFipe->setUrl("https://parallelum.com.br/fipe/api/v1/carros/marcas/{$brandId}/modelos/{$vehicleId}/anos");
+    echo $objFipe->getUrl();
 }
-
-
-if(isset($_GET['modelo'])){
-    $marca=$_GET['modelo'];
-}else{
-    $marca=null;
-}
-
-if(isset($_GET['ano'])){
-    $marca=$_GET['ano'];
-}else{
-    $marca=null;
-}
-
-if(isset($_GET['valor'])){
-    $marca=$_GET['valor'];
-}else{
-    $marca=null;
-}
-
-if($action=='marca'){
-    $objFipe->geturl(url:"https://parallelum.com.br/fipe/api/v1/carros/marcas");
-echo$objFip->geturl();
-}
-

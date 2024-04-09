@@ -5,5 +5,4 @@ select{
     height: 40px;
     margin: 30px 30%;
 }
-
-#veiculo, #ano{display: none;}
+#vehicles,#year{display: none;}
